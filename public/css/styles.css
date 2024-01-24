@@ -1,0 +1,110 @@
+body {
+    font-family: Courier, monospace;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  form label, form input, form select, form button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  form input, form select, form button {
+    width: 200px;
+  }
+  
+  .welcome-message {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  .actions {
+    margin-top: 20px;
+  }
+  
+  
+  .actions a.button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #7f03b5;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .actions a.button:hover {
+    background-color: #5c0a80;
+  }
+  .container {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form-actions {
+    text-align: right;
+  }
+  
+  .form-actions button {
+    padding: 10px 15px;
+    background-color: #7f03b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-actions button:hover {
+    background-color: #5c0a80;
+  }
+  .prescriptions-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .prescriptions-list ul li {
+    background-color: #f9f9f9;
+    border: 1px solid #836091;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  td.center-aligned{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #836091;
+  }

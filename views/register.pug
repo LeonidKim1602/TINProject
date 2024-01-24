@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title Register
+    link(rel='stylesheet', href='/css/styles.css')
+  body
+    .container
+      h1 Register
+      form(action='/users/register', method='POST')
+        .form-group
+          label(for='username') Username:
+          input(type='text', name='username', required minlength="3" maxlength="20")
+          span.feedback.hidden Username must be 3-20 characters long.
+        .form-group
+          label(for='password') Password:
+          input(type='password', name='password', required minlength="6")
+          span.feedback.hidden Password must be at least 6 characters long.
+        .form-actions
+          button(type='submit') Register
+
+  script.
+    document.addEventListener('DOMContentLoaded', function() {
+      const usernameInput = document.querySelector('input[name="username"]');
+      const passwordInput = document.querySelector('input[name="password"]');
+
+      const showFeedback = (input, feedback) => {
+        input.addEventListener('input', function() {
+          const inputValue = this.value;
+          const isValid = input.getAttribute('name') === 'username'
+            ? inputValue.length >= 3 && inputValue.length <= 20
+            : inputValue.length >= 6;
+
+          if (isValid) {
+            feedback.classList.add('hidden');
+          } else {
+            feedback.classList.remove('hidden');
+          }
+        });
+      };
+
+      const usernameFeedback = document.querySelector('span.feedback.hidden');
+      const passwordFeedback = document.querySelector('span.feedback.hidden');
+
+      showFeedback(usernameInput, usernameFeedback);
+      showFeedback(passwordInput, passwordFeedback);
+    });

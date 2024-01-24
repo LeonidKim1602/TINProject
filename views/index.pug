@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container
+    h1 Prescripton Management App
+    .welcome-message
+      if user
+        p Hello, #{user.username}!
+        p Welcome back.
+        .actions
+          a(href='/users/logout') Logout
+      else
+        p To access your prescriptions or manage them, please log in or register.
+        .actions
+          a.button(href='/users/login') Login
+          a.button(href='/users/register') Register
+    
+    h2 Available Medicines In The System
+    if medicines && medicines.length > 0
+      table
+        thead
+          tr
+            th Name
+            th Category
+        tbody
+          each medicine in medicines
+            tr
+              td= medicine.name
+              td= medicine.category
+    else
+      p No medicines available at the moment.

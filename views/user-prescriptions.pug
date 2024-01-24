@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container
+    h1 Your Prescriptions
+    if prescriptions && prescriptions.length > 0
+      .prescriptions-list
+        table
+          thead
+            tr
+              th Medicine Name
+              th Category
+              th Quantity
+          tbody
+            each prescription in prescriptions
+              tr
+                td.center-aligned= prescription.medicine_name
+                td.center-aligned= prescription.category
+                td.center-aligned= prescription.quantity
+    else
+      p No prescriptions assigned.
+    .actions
+      a.button(href='/users/logout') Logout

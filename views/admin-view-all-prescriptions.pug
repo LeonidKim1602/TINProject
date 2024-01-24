@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .container
+    h1 Admin - View All Prescriptions
+    if prescriptions && prescriptions.rows && prescriptions.rows.length > 0
+      table.prescriptions-table
+        thead
+          tr
+            th User
+            th Medicine
+            th Quantity
+            th Category
+            th Action
+        tbody
+          each prescription in prescriptions.rows
+            tr
+              td.center-aligned= prescription.username
+              td.center-aligned= prescription.medicine_name
+              td.center-aligned= prescription.quantity
+              td.center-aligned= prescription.medicine_category
+              td.center-aligned
+                form(action=`/admin/delete-prescription/${prescription.prescription_id}`, method='POST')
+                    button(type='submit') Delete
+
+      .pagination
+        if prescriptions.currentPage > 1
+          a(href=`/admin/view-all-prescriptions?page=${prescriptions.currentPage-1}`) Prev
+        | Page #{prescriptions.currentPage} of #{prescriptions.totalPages}
+        if prescriptions.currentPage < prescriptions.totalPages
+          a(href=`/admin/view-all-prescriptions?page=${prescriptions.currentPage+1}`) Next
+    else
+      p No prescriptions available.

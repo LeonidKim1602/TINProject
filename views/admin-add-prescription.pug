@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    h1 Admin - Add Prescription
+    form(action='/admin/add-prescription', method='POST')
+      .form-group
+        label(for='userId') Select User:
+        select(name='userId', required)
+          each user in users
+            option(value=user.id)= user.username
+      .form-group
+        label(for='medicineId') Select Medicine:
+        select(name='medicineId', required)
+          each medicine in medicines
+            option(value=medicine.id)= medicine.name
+      .form-group
+        label(for='quantity') Quantity:
+        input(type='number', name='quantity', required min="0")
+      .form-actions
+        button(type='submit') Add Prescription
